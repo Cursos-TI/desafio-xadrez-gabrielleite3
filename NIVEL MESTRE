@@ -1,0 +1,67 @@
+#include <stdio.h> //TEMA 3 MESTRE
+
+// Movimento da torre 5 casas para a direita
+void movimentostorre(int T) {
+    if (T > 0) {
+        printf("Direita\n");
+        movimentostorre(T - 1);
+    }
+}
+
+// Movimento da rainha 8 casas à esquerda
+void movimentosrainha(int R) {
+    if (R > 0) {
+        printf("Esquerda\n");
+        movimentosrainha(R - 1);
+    }
+}
+
+// Função recursiva para o movimento do Bispo
+void movimentobispo(int vertical, int horizontal, int limite) {
+    if (vertical > 0 && horizontal > 0 && limite > 0) {
+        for (int i = 0; i < vertical; i++) {// Loop para o movimento vertical
+            for (int j = 0; j < horizontal; j++) {// Loop interno para o movimento horizontal
+                printf("Cima, Direita\n"); // Movimento diagonal do bispo
+            }
+        }
+        movimentobispo(vertical, horizontal, limite - 1); // Chamada recursiva
+    }
+}
+
+int main() {
+    int torre = 5;
+    printf("Movimento da Torre\n");
+    movimentostorre(torre);// Chama a função recursiva para a torre
+
+    //__________________________________//
+
+    int rainha = 8;
+    printf("\nMovimento da Rainha\n");
+    movimentosrainha(rainha);// Chama a função recursiva para a rainha
+
+    //__________________________________//
+
+    printf("\nMovimento do Bispo\n");
+    int vertical = 1, horizontal = 1, limite = 5;
+    movimentobispo(vertical, horizontal, limite); // Chama a função recursiva para o bispo
+
+//____________________________________________///
+
+
+printf("\nMovimento do Cavalo\n");
+
+int limiteVertical = 2, limiteHorizontal = 1;
+
+// Loop para o movimento vertical (2 casas para cima)
+for (int i = 0; i < limiteVertical; i++) {
+    // Loop interno para o movimento horizontal (1 casa para a direita)
+    for (int j = 0; j < limiteHorizontal; j++) {
+        printf("Cima\n");
+    }
+}
+printf("Direita\n");
+
+
+
+    return 0;       
+}
